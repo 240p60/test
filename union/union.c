@@ -6,7 +6,7 @@
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 19:59:31 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/18 01:14:23 by bbryen           ###   ########.fr       */
+/*   Updated: 2019/03/18 20:11:07 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ void	ft_union(char *str1, char *str2)
 	int i;
 
 	i = 0;
+	while(str1[i] != '\0')
+	{
+		if(ascii[(int)str1[i]] == 0)
+		{
+			ascii[(int)str1[i]] += 1;
+			ft_putchar(str1[i]);
+			i++;
+		}
+		else
+			i++;
+	}
+	i = 0;
 	while(str2[i] != '\0')
 	{
 		if(ascii[(int)str2[i]] == 0)
-			ascii[(int)str2[i]] = 1;
-		else if(ascii[(int)str2[i]] == 1)
-			ascii[(int)str2[i]] += 1;
-		i++;
-	}
-	i = 0;
-	while(str1[i] != '\0')
-	{
-		if(ascii[(int)str1[i]] == 1 && ascii[(int)str1[i]] == 0)
 		{
-			ascii[(int)str1[i]] += 1;
-			ft_putchar(ascii[(int)str1[i]]);
+			ascii[(int)str2[i]] += 1;
+			ft_putchar(str2[i]);
 			i++;
 		}
 		else
