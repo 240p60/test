@@ -6,7 +6,7 @@
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 00:05:32 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/21 00:40:23 by bbryen           ###   ########.fr       */
+/*   Updated: 2019/03/21 02:14:44 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_hex(char *hex, int a, int nb)
 }
 int		main(void)
 {
-	int a = 5156454;
+	int a = 17;
 	char hex[] = "0123456789abcdef";
 	int nb;
 

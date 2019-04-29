@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/16 12:47:48 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 00:26:06 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+void	ft_putstr(char const *s)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	int	i;
 
-	delimetr = 1;
-	if(argc == 3)
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		ft_putchar(s[i]);
+		i++;
 	}
-	printf("\n");
-	return (0);
 }

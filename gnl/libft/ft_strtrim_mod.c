@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim_mod.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/18 18:20:04 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/18 22:16:02 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+char	*ft_strtrim_mod(char const *s, char c)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	char	*str;
+	size_t	i;
+	size_t	j;
+	size_t	len;
 
-	delimetr = 1;
-	if(argc == 3)
-	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
-	}
-	printf("\n");
-	return (0);
+	if (!s)
+		return (0);
+	len = ft_strlen(s);
+	i = 0;
+	while (s[i] == c)
+		i++;
+	while (s[len - 1] == c && len != i)
+		len--;
+	len = len - i;
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+		return (0);
+	j = 0;
+	while (j < len)
+		str[j++] = s[i++];
+	str[j] = '\0';
+	return (str);
 }

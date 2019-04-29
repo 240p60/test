@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/16 03:17:11 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/16 03:46:54 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	unsigned int	i;
+	char			*str;
 
-	delimetr = 1;
-	if(argc == 3)
+	if (s && f)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
+		if (!(str = ft_strnew(ft_strlen(s))))
+			return (0);
+		i = 0;
+		while (s[i])
 		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
+			str[i] = (*f)(i, s[i]);
+			i++;
 		}
-		printf("%d", m);
+		return (str);
 	}
-	printf("\n");
 	return (0);
 }

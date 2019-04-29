@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/16 05:26:50 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 04:35:09 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	int		i;
+	char	*str;
 
-	delimetr = 1;
-	if(argc == 3)
+	if (!s)
+		return (0);
+	if (len + 1 < len)
+		return (0);
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+		return (0);
+	i = 0;
+	while (*s && len--)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		str[i] = s[start];
+		start++;
+		i++;
 	}
-	printf("\n");
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

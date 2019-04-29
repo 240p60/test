@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/13 17:44:06 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/13 22:35:21 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	size_t	i;
+	size_t	j;
+	size_t	dst_s;
+	size_t	src_s;
 
-	delimetr = 1;
-	if(argc == 3)
+	i = 0;
+	j = 0;
+	dst_s = ft_strlen(dst);
+	src_s = ft_strlen(src);
+	if (size <= dst_s)
+		return (src_s + size);
+	while (dst[i] != '\0')
+		i++;
+	while (src[j] != '\0' && i < size - 1)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	printf("\n");
-	return (0);
+	dst[i] = '\0';
+	return (dst_s + src_s);
 }

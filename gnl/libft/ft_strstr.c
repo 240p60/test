@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/11 18:55:17 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 02:07:16 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+char	*ft_strstr(const char *str1, const char *str2)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	int		i;
 
-	delimetr = 1;
-	if(argc == 3)
+	i = 0;
+	if (!str1)
+		return (0);
+	if (ft_strlen(str2) == 0)
+		return ((char *)str1);
+	while (*str1 != '\0')
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
+		while (*(str1 + i) == *(str2 + i))
 		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
+			if (str2[i + 1] == '\0')
+				return ((char *)(str1));
+			i++;
 		}
-		printf("%d", m);
+		str1++;
+		i = 0;
 	}
-	printf("\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/17 18:53:07 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/17 19:03:39 by bbryen           ###   ########.fr       */
+/*   Updated: 2019/03/17 22:07:02 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strdup(char *src)
 
 int		main(void)
 {
-	char sob[13] = "Malloc chert";
+	char sob[] = "Malloc chert";
 	char *sob2;
 
 	sob2 = ft_strdup(sob);

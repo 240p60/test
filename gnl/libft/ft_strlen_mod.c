@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen_mod.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 22:53:54 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/18 23:04:13 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/19 18:26:00 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 04:33:47 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_point.h"
+#include "libft.h"
 
-void	set_point(t_point *point)
+size_t	ft_strlen_mod(const char *str, char c)
 {
-	point->x = 42;
-	point->y = 21;
-}
+	size_t	i;
 
-int		main(void)
-{
-	t_point		point;
-
-	set_point(&point);
-	printf("%d\n%d\n", point.x, point.y);
-	return (0);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i);
 }

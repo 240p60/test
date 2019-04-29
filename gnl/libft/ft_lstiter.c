@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/20 05:28:59 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/20 05:29:16 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	t_list	*ptr;
 
-	delimetr = 1;
-	if(argc == 3)
+	ptr = lst;
+	while (ptr)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		(*f)(ptr);
+		ptr = ptr->next;
 	}
-	printf("\n");
-	return (0);
 }

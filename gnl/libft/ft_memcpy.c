@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/09 15:41:57 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/09 16:47:34 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	unsigned char	*dst1;
+	unsigned char	*src1;
+	size_t			i;
 
-	delimetr = 1;
-	if(argc == 3)
+	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	dst1 = (unsigned char *)dst;
+	src1 = (unsigned char *)src;
+	while (i < n)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		*(dst1 + i) = *(src1 + i);
+		i++;
 	}
-	printf("\n");
-	return (0);
+	return (dst);
 }

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/16 04:06:37 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 01:39:37 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
-
-	delimetr = 1;
-	if(argc == 3)
+	if (!s1 && !s2)
+		return (1);
+	else if (!s1 || !s2)
+		return (0);
+	while (*s1 && *s2 && n--)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
 	}
-	printf("\n");
-	return (0);
+	if (!*s1 && !*s2)
+		return (1);
+	else if (!*s1 || !*s2)
+		return (0);
+	return (1);
 }

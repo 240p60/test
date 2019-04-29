@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbryen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 17:06:14 by bbryen            #+#    #+#             */
-/*   Updated: 2019/03/20 23:21:00 by bbryen           ###   ########.fr       */
+/*   Created: 2019/04/10 20:13:11 by bbryen            #+#    #+#             */
+/*   Updated: 2019/04/21 04:43:23 by bbryen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char *argv[])
+char	*ft_strcpy(char *str1, const char *str2)
 {
-	int num1;
-	int num2;
-	int delimetr;
-	int m;
+	size_t	i;
 
-	delimetr = 1;
-	if(argc == 3)
+	i = 0;
+	if (!str1 && !str2)
+		return (0);
+	while (str2[i] != '\0')
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		while(delimetr <= num1 && delimetr <= num2)
-		{
-			if(num1 % delimetr == 0 && num2 % delimetr == 0)
-				m = delimetr;
-			delimetr++;
-		}
-		printf("%d", m);
+		str1[i] = str2[i];
+		i++;
 	}
-	printf("\n");
-	return (0);
+	str1[i] = '\0';
+	return (str1);
 }
