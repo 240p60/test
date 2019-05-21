@@ -5,6 +5,11 @@ void    print_bits(int count)
     int del;
 
     del = 128;
+    if (count >= 48 && count <= 57)
+    {
+        del = 8;
+        count -= 48;
+    }
     while (count != 0 || del != 0)
     {
         if (count / del == 1)
